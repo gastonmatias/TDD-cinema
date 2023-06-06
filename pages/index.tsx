@@ -21,6 +21,9 @@ export default function Home() {
 
         <div className="divider"></div> 
 
+        <div className='text-center'>
+          <h1 className='text-3xl bg-neutral font-bold shadow-lg'>Coming Soon!</h1>
+        </div>
       </div>
 
     </Layout>
