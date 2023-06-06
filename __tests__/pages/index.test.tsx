@@ -32,4 +32,14 @@ describe('When home page is mounted', () => {
     expect(onTheathersHeading).toBeInTheDocument()
     expect(comingSoonHeading).toBeInTheDocument()
   })
+
+  //GUS_2.1
+  test('the "on theathers" section must have at least 5 movies', () => {
+
+    const onTheathersSection = screen.getByTestId('onTheathers'); // Obtener el elemento padre por su atributo data-testid
+  
+    const onTheathersMovies = onTheathersSection.getElementsByTagName('div'); // Obtener todos los elementos <div> dentro del elemento padre
+    
+    expect(onTheathersMovies.length).toBeGreaterThanOrEqual(5); // Verificar que haya al menos 5 elementos
+  })
 })
