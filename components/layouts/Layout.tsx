@@ -18,15 +18,11 @@ export const Layout: FC<Props> = ({title, children, content}) => {
         <link rel="icon" href="/favicon.ico" />
     </Head>
     
-    {/* <div className="container w-fit">  */}
     <Navbar/>
     
     <div className="container min-h-screen mx-auto w-full"> 
-      {/* <div className=""> */}
         {children}
-      {/* </div> */}
     </div>
-    {/* </div> */}
     </>
   )
 }

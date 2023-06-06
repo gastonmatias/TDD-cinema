@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import Home from '@/pages/index'
 
-describe('When home is mounted, the navbar', () => {
+describe('When home page is mounted', () => {
   
   // GUS_1
-  test('should have the links to: on theathers, coming soon & about', () => {
+  test('the navbar should have the links to: on theathers, coming soon & about', () => {
     
     render(<Home />)
 
