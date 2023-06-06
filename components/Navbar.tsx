@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
 
 import { themeChange } from 'theme-change';
 
@@ -9,11 +9,33 @@ export const Navbar = () => {
     themeChange(false) // 👆 false parameter is required for react project
   }, [])
   
-  const links:string[] = ['On Theathers','Coming Soon!','About']
+  interface ILinks{
+    link: string
+    ui: string
+    id: string
+  }
+
+  const links:ILinks[] = [
+    {
+      link: '/on-theahers',
+      ui: 'On Theathers',
+      id: 'a-ontheathers' 
+    },
+    {
+      link: '/coming-soon',
+      ui: 'Coming Soon!',
+      id: 'a-comingsoon' 
+    },
+    {
+      link: '/about',
+      ui: 'About',
+      id: 'a-about' 
+    },
+  ]
   
   return (
     <>
-    <div className="navbar bg-base-200 mb-5 sticky top-0 w-full">
+    <nav className="navbar bg-base-200 mb-5 sticky top-0 w-full">
       <div className="navbar-start">
 
         {/* INIT MOBILE ------------------------------------------------------------------------------ */}
@@ -23,8 +45,10 @@ export const Navbar = () => {
           </label>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
             {links.map((e) => 
-              <li key={e}>
-                <a>{e}</a>
+              <li key={e.id}>
+                <a href={e.link} id={`${e.id}-mobile`}>
+                  {e.ui}
+                </a>
               </li>
             )}
           </ul>
@@ -37,9 +61,11 @@ export const Navbar = () => {
       <div className="navbar-center hidden sm:flex">
         <ul className="menu menu-horizontal px-1">
           {links.map((e) => 
-            <li key={e}>
-              <a>{e}</a>
-            </li>
+              <li key={e.id}>
+                <a href={e.link} id={`${e.id}-desktop`}>
+                  {e.ui}
+                </a>
+              </li>
           )}
         </ul>
       </div>{/* END DESKTOP --------------------------------------------------------------------------------------------- */}
@@ -71,7 +97,7 @@ export const Navbar = () => {
         </div>
       </div>
 
-    </div>{/* END NAVBAR -------------------  */}
+    </nav>{/* END NAVBAR -------------------  */}
     </>
   )
 }
