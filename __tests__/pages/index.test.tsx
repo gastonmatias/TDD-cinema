@@ -3,11 +3,11 @@ import Home from '@/pages/index'
 
 describe('When home page is mounted', () => {
   
+  beforeEach(() => render(<Home/>))
+
   // GUS_1
   test('the navbar should have the links to: on theathers, coming soon & about', () => {
     
-    render(<Home />)
-
     // identifica navbar
     const navElement = screen.getByRole('navigation'); // Obtener el elemento <nav>
     
@@ -24,9 +24,7 @@ describe('When home page is mounted', () => {
   })
 
   //GUS_2
-  test('should be an "on theathers" and "coming soon" section', () => {
-
-    render(<Home/>)
+  test('there should be the sections "on theathers" and "coming soon"', () => {
 
     const onTheathersHeading = screen.getByRole('heading',{name:/On Theathers/i})
     const comingSoonHeading = screen.getByRole('heading',{name:/Coming Soon/i})
