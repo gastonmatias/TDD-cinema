@@ -22,4 +22,16 @@ describe('When home page is mounted', () => {
     expect(aboutLink?.      closest('nav')).toBe(navElement);      
 
   })
+
+  //GUS_2
+  test('should be an "on theathers" and "coming soon" section', () => {
+
+    render(<Home/>)
+
+    const onTheathersHeading = screen.getByRole('heading',{name:/On Theathers/i})
+    const comingSoonHeading = screen.getByRole('heading',{name:/Coming Soon/i})
+    
+    expect(onTheathersHeading).toBeInTheDocument()
+    expect(comingSoonHeading).toBeInTheDocument()
+  })
 })
